@@ -23,10 +23,10 @@ class Program
             else if (userInput == "")
             {
                 Console.Clear();
-                scripture.HideRandomWords(3);//?
-                scripture.GetDisplayText();
+                scripture.HideRandomWords(3);
+                Console.WriteLine(scripture.GetDisplayText());
 
-                if (scripture.IsCompletelyHidden())
+                if (scripture.IsCompletelyHidden() == true)
                 {
                     break;
                 }
@@ -36,9 +36,6 @@ class Program
                 Console.WriteLine();
                 Console.WriteLine("Please enter a valid arguement. ");
             }
-
         }
-
-
     }
 }

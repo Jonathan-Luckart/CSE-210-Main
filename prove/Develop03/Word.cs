@@ -15,12 +15,21 @@ public class Word
 
     public void Hide()
     {
+        char[] letters = _text.ToCharArray();
+        String hiddenWord = "";
 
+        foreach (Char single in letters)
+        {
+            String newChar = $"{single}";
+            newChar = "_";
+            hiddenWord = hiddenWord + newChar;
+        }
+        _text = hiddenWord;
     }
 
     public void Show()
     {
-
+        Console.WriteLine($"{_text}");
     }
 
     public Boolean IsHidden()

@@ -1,3 +1,5 @@
+using System;
+
 public class Scripture
 {
     private Reference _reference;
@@ -22,6 +24,12 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+        for (int i = 0; i < numberToHide; i++)
+        {
+        Random random = new Random();
+        int j = random.Next(0, _words.Count);
+        _words[j].Hide();
+        }
 
     }
 
@@ -39,6 +47,22 @@ public class Scripture
 
     public Boolean IsCompletelyHidden()
     {
-        return false;
+        Boolean hiddenFully = false;
+        int doesEqual = 0;
+
+        foreach (Word wordObj in _words)
+        {
+            if (wordObj.GetDisplayText().Contains("_"))
+            {
+                doesEqual += 1;
+            }
+            
+            if (doesEqual == _words.Count)
+            {
+                hiddenFully = true;
+            }
+        }
+
+        return hiddenFully;
     }
 }
