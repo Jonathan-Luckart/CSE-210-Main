@@ -1,14 +1,14 @@
 public class Word
 {
     private String _text;
-    private Boolean _isHidden;
+    //private Boolean _isHidden;
 
     //-------------------------------------
 
     public Word(String text)
     {
         _text = text;
-        _isHidden = false;
+       // _isHidden = false;
     }
 
     //-------------------------------------
@@ -27,15 +27,15 @@ public class Word
         _text = hiddenWord;
     }
 
-    public void Show()
+    /*public void Show()
     {
         Console.WriteLine($"{_text}");
     }
 
     public Boolean IsHidden()
     {
-        return false;
-    }
+        return _isHidden;
+    }*/
 
     public String GetDisplayText()
     {
