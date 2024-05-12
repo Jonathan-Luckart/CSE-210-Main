@@ -24,13 +24,13 @@ public class Scripture
 
     public void HideRandomWords(int numberToHide)
     {
+
         for (int i = 0; i < numberToHide; i++)
         {
         Random random = new Random();
         int j = random.Next(0, _words.Count);
         _words[j].Hide();
         }
-
     }
 
     public String GetDisplayText()

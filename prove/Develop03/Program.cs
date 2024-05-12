@@ -4,8 +4,34 @@ class Program
 {
     static void Main(string[] args)
     {
-        Reference reference = new Reference("Proverbs", 3, 5, 6);
-        Scripture scripture = new Scripture(reference, "Trust in the Lord with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.");
+        //Begin creative reqs -----------------------------------------------------
+        #region 
+        List<string> passages = new List<string>();
+        String line;
+
+        StreamReader sr = new StreamReader("scripturefile.txt");
+        line = sr.ReadLine();
+        while (line != null)
+        {
+            passages.Add(line);
+            line = sr.ReadLine();
+        }
+
+        Random randPass = new Random();
+        int selected = randPass.Next(0, passages.Count);
+        String[] cutPass = passages[selected].Split("&");
+
+        String book = cutPass[0];
+        int chapter = int.Parse(cutPass[1]);
+        int startVerse = int.Parse(cutPass[2]);
+        int endVerse = int.Parse(cutPass[3]);
+        String scriptVar = cutPass[4];
+        #endregion
+        //end creative reqs -------------------------------------------------------
+
+
+        Reference reference = new Reference(book, chapter, startVerse, endVerse);
+        Scripture scripture = new Scripture(reference, scriptVar);
 
         Console.Clear();
         Console.WriteLine(scripture.GetDisplayText());
