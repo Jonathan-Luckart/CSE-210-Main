@@ -8,16 +8,12 @@ public class EternalGoal : Goal
 
      public override void RecordEvent()
     {
-        //init
-    }
-
-    public override bool IsComplete()
-    {
-        return false;
+        Console.WriteLine($"Congratulations! You have earned {_points} points! ");
     }
 
     public override string GetStringRepresentation()
     {
-        return "";
+        String egFull = $"EG:{_shortName}#{_description}#{_points}";
+        return egFull;
     }
 }

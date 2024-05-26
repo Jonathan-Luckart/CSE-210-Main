@@ -1,8 +1,10 @@
 public abstract class Goal
 {
-    private String _shortName;
-    private String _description;
-    private int _points;
+    protected String _shortName;
+    protected String _description;
+    protected String _markedDone;
+    protected int _points;
+    
 
     //----------------------------------
 
@@ -11,17 +13,30 @@ public abstract class Goal
         _shortName = name;
         _description = description;
         _points = points;
+
+        _markedDone = " ";
+    }
+
+    //---------------------------------------
+
+    public String GetName()
+    {
+        return _shortName;
+    }
+
+    public int GetPoints()
+    {
+        return _points;
     }
 
     //---------------------------------------
 
     public abstract void RecordEvent();
 
-    public abstract Boolean IsComplete();
-
     public virtual String GetDetailsString()
     {
-        return "";
+        String goalListItem = $"[{_markedDone}] {_shortName} ({_description})";
+        return goalListItem;
     }
 
     public abstract String GetStringRepresentation();
